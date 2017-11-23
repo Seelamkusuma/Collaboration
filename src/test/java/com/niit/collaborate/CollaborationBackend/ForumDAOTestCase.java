@@ -29,7 +29,7 @@ public class ForumDAOTestCase {
 	@Test
 	public void createForumTest() {
 		Forum forum=new Forum();
-		forum.setForumId(1001);
+		forum.setForumId(1002);
 		forum.setForumName("StackOverflow");
 		forum.setForumContent("StackOverflow is a forum");
 		forum.setUserId(123);
@@ -38,38 +38,4 @@ public class ForumDAOTestCase {
 		assertTrue("Problem in Blog creation",forumDAO.createForum(forum));
 	}
 
-   
-	@Test
-	public void approveBlogTest() {
-		Forum forum=new Forum();
-		forum.setForumId(10);
-		forum.setForumName("Facebook");
-		forum.setForumContent("facebook is a social networking site");
-		forum.setCreateDate(new java.util.Date());
-		forum.setStatus("NA");
-		assertTrue("Problem in Approving Forum",forumDAO.approveForum(forum));
-	}
-   @Ignore
-   @Test
-   public void getAllApprovedForumTest()
-   {
-	   List<Forum> listForum=forumDAO.getForums();
-	   assertTrue("No Approved Forums",listForum.size()>0);
-   }
-   @Ignore
-   @Test
-   public void deleteForumTest()
-   {
-	   assertTrue("Problem in Deleting",forumDAO.deleteForum(1001));
-   }
-   @Ignore
-   @Test
-   public void getForumByForumId()
-   {
-	   assertNotNull("Problem getting forum",forumDAO.getForum(1002));
-   }
-  
 }
-
-
-

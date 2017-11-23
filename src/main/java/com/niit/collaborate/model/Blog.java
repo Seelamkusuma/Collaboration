@@ -3,76 +3,75 @@ package com.niit.collaborate.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 @Entity
-@Table
-
-public class Blog {
-
-	
-
+@Table(name="Blog")
+public class Blog{
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int blogId;
-	private int likes;
-	
-	public int getLikes() {
-		return likes;
+	private String blogName;
+	@Lob//Large object-Character Large object-CLOB
+	private String blogContent;
+	@ManyToOne
+	private User postedBy;//postedby_userid-> column name FK references username in User Table
+	private Date postedOn;
+	private boolean approved;
+	private String rejectionReason;
+	private boolean viewed;
+	public boolean isViewed() {
+		return viewed;
 	}
-
-	public void setLikes(int likes) {
-		this.likes = likes;
+	public void setViewed(boolean viewed) {
+		this.viewed = viewed;
 	}
-
 	public int getBlogId() {
 		return blogId;
 	}
-
 	public void setBlogId(int blogId) {
 		this.blogId = blogId;
 	}
-
 	public String getBlogName() {
 		return blogName;
 	}
-
 	public void setBlogName(String blogName) {
 		this.blogName = blogName;
 	}
-
 	public String getBlogContent() {
 		return blogContent;
 	}
-
 	public void setBlogContent(String blogContent) {
 		this.blogContent = blogContent;
 	}
-
-	public String getStatus() {
-		return status;
+	public User getPostedBy() {
+		return postedBy;
 	}
-
-	public void setStatus(String status) {
-		this.status = status;
+	public void setPostedBy(User postedBy) {
+		this.postedBy = postedBy;
 	}
-
-	public Date getCreateDate() {
-		return createDate;
+	public Date getPostedOn() {
+		return postedOn;
 	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setPostedOn(Date postedOn) {
+		this.postedOn = postedOn;
 	}
-
-	private String blogName,blogContent,status,userId;
+	public boolean isApproved() {
+		return approved;
+	}
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+	public String getRejectionReason() {
+		return rejectionReason;
+	}
+	public void setRejectionReason(String rejectionReason) {
+		this.rejectionReason = rejectionReason;
+	}
 	
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	private Date createDate;
 }

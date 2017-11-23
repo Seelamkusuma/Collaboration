@@ -26,53 +26,23 @@ public class UserDAOTestCase {
 		
 		userDAO=(UserDAO)annotationConfigAppContext.getBean("userDAO");
 	}
+	@Ignore
 	@Test
 	public void createUserTest() {
 		User user=new User();
-		user.setUserId(1001);
+		user.setUserId("kusuma");
 		user.setEmailId("kusuma@gmail.com");
 		user.setFirstName("kusuma");
 		user.setLastName("seelam");
 		user.setPassword("5678");
-		user.setRole("User");
-		user.setIsOnline("Online");
-		user.setStatus("NA");
+		user.setRole("Admin");
+		user.setOnline(true);
+		
 		assertTrue("Problem in User creation",userDAO.createUser(user));
 	}
 
-   @Ignore
-	@Test
-	public void approveFriendTest() {
-	   User user=new User();
-		user.setUserId(1001);
-		user.setEmailId("vikky@gmail.com");
-		user.setFirstName("vikram");
-		user.setLastName("Badam");
-		user.setPassword("1434");
-		user.setRole("Admin");
-		user.setIsOnline("Online");
-		user.setStatus("NA");
-		assertTrue("Problem in Approving User",userDAO.approveUser(user));
-	}
-   @Ignore
-   @Test
-   public void getAllApprovedUserTest()
-   {
-	   List<User> listUser=userDAO.getUsers();
-	   assertTrue("No Approved Users",listUser.size()>0);
-   }
-   @Ignore
-   @Test
-   public void deleteUserTest()
-   {
-	   assertTrue("Problem in Deleting",userDAO.deleteUser(1001));
-   }
-   @Ignore
-   @Test
-   public void getUserByUserId()
-   {
-	   assertNotNull("Problem getting user",userDAO.getUser(1002));
-   }
+	
+   
   
 
 }

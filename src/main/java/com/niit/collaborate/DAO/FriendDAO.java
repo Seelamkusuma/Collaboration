@@ -3,12 +3,16 @@ package com.niit.collaborate.DAO;
 import java.util.List;
 
 import com.niit.collaborate.model.Friend;
+import com.niit.collaborate.model.User;
 
 public interface FriendDAO {
-	public boolean createFriend(Friend friend);
-	public Friend getFriend(int friendId);
-	public List<Friend> getFriends();
-	public boolean approveFriend(Friend friend);
-	public boolean updateFriend(int friendId);
-	public boolean deleteFriend(int friendId);
+	List<User> listOfSuggestedUsers(String userId);
+	
+	void friendRequest(Friend friend);
+	
+	List<Friend> pendingRequests(String toId);
+	
+	void updatePendingRequest(Friend friend);
+	
+	List<String> listOfFriends(String userId);
 }

@@ -24,9 +24,11 @@ import com.niit.collaborate.DAO.JobDAOImpl;
 import com.niit.collaborate.DAO.UserDAO;
 import com.niit.collaborate.DAO.UserDAOImpl;
 import com.niit.collaborate.model.Blog;
+import com.niit.collaborate.model.BlogComment;
 import com.niit.collaborate.model.Forum;
 import com.niit.collaborate.model.Friend;
 import com.niit.collaborate.model.Job;
+import com.niit.collaborate.model.ProfilePicture;
 import com.niit.collaborate.model.User;
 
 @Configuration
@@ -65,6 +67,8 @@ public SessionFactory getSessionFactory()
 	localSessionFactoryBuilder.addAnnotatedClass(Friend.class);
 	localSessionFactoryBuilder.addAnnotatedClass(Job.class);
 	localSessionFactoryBuilder.addAnnotatedClass(User.class);
+	localSessionFactoryBuilder.addAnnotatedClass(BlogComment.class);
+	localSessionFactoryBuilder.addAnnotatedClass(ProfilePicture.class);
 	System.out.println("SessionFactory Bean Created");
 	return localSessionFactoryBuilder.buildSessionFactory();
 }

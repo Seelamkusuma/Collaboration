@@ -1,6 +1,8 @@
 package com.niit.collaborate.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -8,27 +10,35 @@ import javax.persistence.Table;
 @Table
 public class Friend {
 	@Id
-	private int userId;    
-	private int friendId;
-	private String status;
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int friendId;    
+	private String fromId;
+	private String toId;
+	private char status;
 	public int getFriendId() {
 		return friendId;
 	}
 	public void setFriendId(int friendId) {
 		this.friendId = friendId;
 	}
-	public String getStatus() {
+	public String getFromId() {
+		return fromId;
+	}
+	public void setFromId(String fromId) {
+		this.fromId = fromId;
+	}
+	public String getToId() {
+		return toId;
+	}
+	public void setToId(String toId) {
+		this.toId = toId;
+	}
+	public char getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(char status) {
 		this.status = status;
 	}
 	
-
+	
 }

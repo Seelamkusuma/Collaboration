@@ -11,7 +11,8 @@ import javax.persistence.Table;
 public class ForumComment {
 	@Id
 	private int Id;
-	private int forumId,userId;
+	private int forumId;
+	private int userId;
 	private String username,comment;
 	private Date commentDate;
 	public int getId() {
